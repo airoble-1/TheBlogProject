@@ -12,10 +12,10 @@ namespace TheBlogProject.Models
         public string AuthorId { get; set; }
      
         [Required]
-        [StringLength(75, ErrorMessage = "The {0} must be atleast {2} and no more than {2} character long", MinimumLength = 2)]
+        [StringLength(75, ErrorMessage = "The {0} must be atleast {2} and no more than {1} character long", MinimumLength = 2)]
         public string Title { get; set; }
         [Required]
-        [StringLength(200, ErrorMessage = "The {0} must be atleast {2} and no more than {2} character long", MinimumLength = 2)]
+        [StringLength(200, ErrorMessage = "The {0} must be atleast {2} and no more than {1} character long", MinimumLength = 2)]
         public string Abstract { get; set; }
         [Required]
         public string Content { get; set; }
@@ -25,7 +25,7 @@ namespace TheBlogProject.Models
         public DateTime Created { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Updated Date")]
-        public DateTime Updated { get; set; }
+        public DateTime? Updated { get; set; }
 
         public bool IsPublished { get; set; }
         public string Slug { get; set; }
