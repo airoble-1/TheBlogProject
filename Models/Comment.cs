@@ -38,7 +38,7 @@ namespace TheBlogProject.Models
 
         // Navigation properties - used to navigate the relationships b/w entities
         public virtual Post Post { get; set; }  // holds the record referenced by FK PostId 
-        public virtual IdentityUser Author { get; set; }
-        public virtual IdentityUser Moderator { get; set; }
+        public virtual BlogUser Author { get; set; }
+        public virtual BlogUser Moderator { get; set; }
     }
 }
