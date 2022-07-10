@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.ComponentModel.DataAnnotations;
+using TheBlogProject.Enums;
 
 namespace TheBlogProject.Models
 {
@@ -32,6 +33,8 @@ namespace TheBlogProject.Models
         [StringLength(500, ErrorMessage = "The {0} must be atleast {2} and no more than {1} character long", MinimumLength = 2)]
         [Display(Name = "Moderated Comment")]
         public string ModeratedBody { get; set; }
+
+        public ModerationType ModerationType { get; set; }
 
         // Navigation properties - used to navigate the relationships b/w entities
         public virtual Post Post { get; set; }  // holds the record referenced by FK PostId 

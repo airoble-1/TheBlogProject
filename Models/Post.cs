@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TheBlogProject.Enums;
 
 namespace TheBlogProject.Models
 {
@@ -29,7 +30,9 @@ namespace TheBlogProject.Models
         [Display(Name = "Updated Date")]
         public DateTime? Updated { get; set; }
 
-        public bool IsPublished { get; set; }
+        // public bool IsPublished { get; set; }
+        public ReadyStatus ReadyStatus { get; set; }
+
         public string Slug { get; set; }
 
         public byte [] ImageData { get; set; }
@@ -38,7 +41,7 @@ namespace TheBlogProject.Models
         public IFormFile Image { get; set; }
 
 
-        // Navigation PropertIES
+        // Navigation Properties
         public virtual Blog Blog { get; set; }
         public virtual IdentityUser Author { get; set; }    
         public virtual ICollection<Tag> Tags { get; set; } = new HashSet<Tag>();
