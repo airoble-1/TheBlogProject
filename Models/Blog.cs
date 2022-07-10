@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,7 +10,7 @@ namespace TheBlogProject.Models
     public class Blog
     { 
         public int Id { get; set; } 
-        public string AuthorId { get; set; }
+        public string AuthorId { get; set; } // FK used for navigation property
        
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be atleast {2} and at most {1} characters", MinimumLength = 2)]
@@ -30,6 +32,12 @@ namespace TheBlogProject.Models
         public string ContentType { get; set; } // image type
         [NotMapped] // will not create an field in table
         public IFormFile Image { get; set; } // represents the file object will derive details from to hold in other props above
+
+
+        // NAVIGATION PROPERTIES
+        public virtual IdentityUser Author { get; set; }
+        public virtual ICollection<Post> Posts { get; set; } = new HashSet<Post>();
+
 
     }
 }

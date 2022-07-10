@@ -14,9 +14,9 @@ namespace TheBlogProject.Models
         public string Text { get; set; }
 
         // navigation properties
-        public Post Post { get; set; }  
-        public virtual IdentityUser Author { get; set; }        
-
-
+        public virtual Post Post { get; set; }
+        public virtual IdentityUser Author { get; set; }
+         
+       
     }
 }
