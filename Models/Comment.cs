@@ -9,7 +9,7 @@ namespace TheBlogProject.Models
     {
         public int Id { get; set; }
         public int PostId { get; set; }
-        public string AuthorId { get; set; }
+        public string BlogUserId { get; set; }
         public string ModeratorId { get; set; }
 
         [Required]
@@ -38,7 +38,7 @@ namespace TheBlogProject.Models
 
         // Navigation properties - used to navigate the relationships b/w entities
         public virtual Post Post { get; set; }  // holds the record referenced by FK PostId 
-        public virtual BlogUser Author { get; set; }
+        public virtual BlogUser BlogUser { get; set; }
         public virtual BlogUser Moderator { get; set; }
     }
 }
