@@ -20,7 +20,7 @@ namespace TheBlogProject.Areas.Identity.Pages.Account
         public ConfirmEmailModel(UserManager<BlogUser> userManager)
         {
             _userManager = userManager;
-        }1
+        }
 
         [TempData]
         public string StatusMessage { get; set; }

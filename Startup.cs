@@ -31,7 +31,7 @@ namespace TheBlogProject
             // services.AddDbContext<ApplicationDbContext>(options =>
             //    options.UseSqlServer(
             //      Configuration.GetConnectionString("DefaultConnection")));
-            
+
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseNpgsql(
                    Configuration.GetConnectionString("DefaultConnection")));
@@ -40,10 +40,14 @@ namespace TheBlogProject
 
             // services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
-            
+
             services.AddIdentity<BlogUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-         .AddEntityFrameworkStores<ApplicationDbContext>();
+            .AddDefaultUI()
+            .AddDefaultTokenProviders()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
+
             services.AddRazorPages();
         }
 

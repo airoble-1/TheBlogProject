@@ -35,6 +35,7 @@ namespace TheBlogProject.Models
 
 
         // NAVIGATION PROPERTIES
+        [Display(Name = "Author")]
         public virtual BlogUser BlogUser { get; set; }
         public virtual ICollection<Post> Posts { get; set; } = new HashSet<Post>();
 
