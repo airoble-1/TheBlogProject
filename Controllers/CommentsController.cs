@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,32 +38,12 @@ namespace TheBlogProject.Controllers
             return View("Index", deletedComments);
         }
 
-        // public async Task<IActionResult> Index()
-        // {
-            //var applicationDbContext = _context.Comments.Include(c => c.BlogUser).Include(c => c.Moderator).Include(c => c.Post);
-            //return View(await applicationDbContext.ToListAsync());
-        // }
-
-        // GET: Comments/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Index()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var comment = await _context.Comments
-                .Include(c => c.BlogUser)
-                .Include(c => c.Moderator)
-                .Include(c => c.Post)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (comment == null)
-            {
-                return NotFound();
-            }
-
-            return View(comment);
+            var allcomments = await _context.Comments.ToListAsync();
+            return View(allcomments);
         }
+
 
         // GET: Comments/Create
         //public IActionResult Create()
